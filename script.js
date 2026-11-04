@@ -221,36 +221,43 @@ function displayTasks() {
         } else {
             priorityText = "🟢 Low";
         }
+        
 
 
         // Task card HTML
-        taskCard.innerHTML = `            
+        // Task card HTML
+taskCard.innerHTML = `
+
+    <div class="task-info">
+
+        <h3 class="task-title">
+            ${escapeHTML(task.title || "Untitled Task")}
+        </h3>
+
         <div class="task-details">
-         <span>
-         📁 ${escapeHTML(task.category)}
-          </span>
 
-        <span>
-        ${priorityText}
-         </span>
+            <span>
+                📁 ${escapeHTML(task.category)}
+            </span>
 
-        <span>
-        📌 Assigned:
-        ${formatDate(task.assignedDate)}
-        </span>
+            <span>
+                ${priorityText}
+            </span>
 
-        <span>
-        📅 Due:
-        ${formattedDate}
-        </span>
+            <span>
+                📌 Assigned:
+                ${formatDate(task.assignedDate)}
+            </span>
 
-        <span>
-        ${
-            task.completed
-            ? "✅ Completed"
-            : "⏳ Pending"
-        }
-        </span>
+            <span>
+                📅 Due:
+                ${formattedDate}
+            </span>
+
+            <span>
+                ${task.completed ? "✅ Completed" : "⏳ Pending"}
+            </span>
+
         </div>
         
         <div class="task-timing">
@@ -339,8 +346,32 @@ function displayTasks() {
                 </button>
 
             </div>
-        `;
+                `;
 
+        // FORCE TASK NAME TO BE VISIBLE
+        const titleElement = taskCard.querySelector(".task-title");
+
+        if (titleElement) {
+            titleElement.textContent =
+                task.title || task.taskName || task.name || "Task name missing";
+
+            titleElement.style.cssText = `
+                display: block !important;
+                color: #111827 !important;
+                -webkit-text-fill-color: #111827 !important;
+                font-size: 22px !important;
+                font-weight: 800 !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                width: 100% !important;
+                height: auto !important;
+                min-height: 30px !important;
+                margin-bottom: 14px !important;
+                line-height: 1.5 !important;
+                position: relative !important;
+                z-index: 10 !important;
+            `;
+        }
 
         taskList.appendChild(taskCard);
     });
