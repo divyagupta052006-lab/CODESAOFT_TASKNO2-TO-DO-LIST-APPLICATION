@@ -1033,3 +1033,143 @@ body.dark .overdue-badge {
         grid-template-columns: 1fr;
     }
 }
+
+/* TASK NAME VISIBILITY */
+
+.task-title {
+    display: block;
+    width: 100%;
+    color: #1e293b;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    visibility: visible;
+    opacity: 1;
+    overflow-wrap: anywhere;
+}
+
+body.dark .task-title {
+    color: #ffffff;
+}
+
+.completed .task-title {
+    text-decoration: line-through;
+}
+
+/* ==========================================
+   FIX: TASK NAME INVISIBLE
+========================================== */
+
+#taskList .task-card .task-info .task-title {
+    display: block !important;
+
+    color: #f1f5f9 !important;
+    -webkit-text-fill-color: #f1f5f9 !important;
+
+    background: none !important;
+    background-image: none !important;
+    background-clip: border-box !important;
+    -webkit-background-clip: border-box !important;
+
+    font-size: 21px !important;
+    font-weight: 800 !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    height: auto !important;
+    min-height: 28px !important;
+
+    margin-bottom: 14px !important;
+    line-height: 1.5 !important;
+
+    overflow: visible !important;
+    text-decoration: none;
+}
+
+/* Light mode task name */
+body:not(.dark) #taskList .task-card .task-info .task-title {
+    color: #1e293b !important;
+    -webkit-text-fill-color: #1e293b !important;
+}
+
+/* Dark mode task name */
+body.dark #taskList .task-card .task-info .task-title {
+    color: #f8fafc !important;
+    -webkit-text-fill-color: #f8fafc !important;
+}
+
+/* Completed task */
+#taskList .task-card.completed .task-info .task-title {
+    text-decoration: line-through !important;
+}
+
+/* FIX TASK NAME DISPLAY */
+
+#taskList .task-card {
+    align-items: flex-start !important;
+}
+
+#taskList .task-card .task-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    flex: 1 !important;
+    min-width: 0;
+}
+
+#taskList .task-card .task-title {
+    display: block !important;
+    width: 100% !important;
+    min-height: 30px !important;
+
+    color: #1e293b !important;
+    -webkit-text-fill-color: #1e293b !important;
+
+    font-size: 22px !important;
+    font-weight: 800 !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    margin-bottom: 12px !important;
+    line-height: 1.5 !important;
+}
+
+body.dark #taskList .task-card .task-title {
+    color: #f8fafc !important;
+    -webkit-text-fill-color: #f8fafc !important;
+}
+/* ==========================================
+   FIX TASK NAME VISIBILITY
+========================================== */
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.task-title {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+
+    font-size: 22px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.5;
+    margin-bottom: 14px;
+
+    word-break: break-word;
+}
+
+body.dark .task-title {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
